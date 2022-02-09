@@ -67,7 +67,7 @@ function cacheOnly(event){
 */
 
 /* ------------------ cache first  -----------------*/
-/*
+
 self.addEventListener('fetch', function(event) {
  
   event.respondWith(
@@ -91,10 +91,10 @@ self.addEventListener('fetch', function(event) {
     })
   );
 });
-*/
 
 
- /*network med fallback til cache */
+
+ /*network med fallback til cache
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
@@ -105,5 +105,5 @@ self.addEventListener('fetch', function(event) {
     })
   );
 });
-
+*/
 
