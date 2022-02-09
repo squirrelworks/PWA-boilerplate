@@ -30,7 +30,7 @@ self.addEventListener('install', function(event) {
 
 
 
-
+/*
 
 
 self.addEventListener('fetch', function(event){
@@ -49,7 +49,7 @@ self.addEventListener('fetch', function(event){
   }
 
   if (event.request.url.includes('images.dog.ceo') ) {
-    /* found a dog cache it*/  
+    /* found a dog cache it 
     console.log('found dog img to cache: '+event.request.url);
   }
 
@@ -64,7 +64,7 @@ function cacheOnly(event){
 
 
 }
-
+*/
 
 /* ------------------ cache first  -----------------*/
 /*
@@ -94,7 +94,7 @@ self.addEventListener('fetch', function(event) {
 */
 
 
-/* network med fallback til cache 
+ network med fallback til cache 
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
@@ -104,6 +104,6 @@ self.addEventListener('fetch', function(event) {
       return caches.match(event.request);
     })
   );
-});*/
+});
 
 
