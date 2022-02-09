@@ -6,7 +6,7 @@ if ("serviceWorker" in navigator) {
   
   .then(registration => {
     console.log("sw registered");
-    loadData('https://dog.ceo/api/breeds/image/random');
+ 
 
   }).catch(error => {
     console.log("sw reg fail");
@@ -24,7 +24,7 @@ if ("serviceWorker" in navigator) {
 
 /* fetch the dog*/
 
-//let myFetchedData=loadData('https://dog.ceo/api/breeds/image/random');
+let myFetchedData=loadData('https://dog.ceo/api/breeds/image/random');
 
 
 

@@ -16,6 +16,7 @@ let urlsToCache = [
 
 self.addEventListener('install', function(event) {
   // Perform install steps
+  console.log('installing ------------------------------------------');
   event.waitUntil(
     caches.open(CACHE_NAME)
 
@@ -58,7 +59,7 @@ self.addEventListener('fetch', function(event){
 function cacheOnly(event){
   console.log('cacheOnly: '+event.request.url);
   event.respondWith(caches.match(event.request));
-  
+
 
 }
 
