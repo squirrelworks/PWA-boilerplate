@@ -43,7 +43,9 @@ self.addEventListener('fetch', function(event){
 
   if (event.request.url.includes('css') ) {
     console.log('found css: '+event.request.url);
-    cacheOnly(event);
+    event.respondWith(caches.match(event.request));
+
+    //cacheOnly(event);
   }
 
   if (event.request.url.includes('images.dog.ceo') ) {
