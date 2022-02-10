@@ -73,7 +73,7 @@ self.addEventListener('fetch', function (event) {
       );
       return;
 
-    // All `XMLHttpRequest` or `fetch()` calls where m
+    // All `XMLHttpRequest` or `fetch()` calls where git
     // `Request.destination` is the empty string default value
 
     default:
