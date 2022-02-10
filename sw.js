@@ -73,7 +73,7 @@ self.addEventListener('fetch', function (event) {
       );
       return;
 
-    // All `XMLHttpRequest` or `fetch()` calls where
+    // All `XMLHttpRequest` or `fetch()` calls where m
     // `Request.destination` is the empty string default value
 
     default:
