@@ -16,49 +16,54 @@ if ("serviceWorker" in navigator) {
 
 } else {
 
-/*browser does not support service worker*/
+//browser does not support service worker
   alert("pwa not supported");
   /* do non pwa stuff here*/
 }
 
 
-/* fetch the dog*/
+// fetch the dog
+let lastImage="empty";
+getDog()
 
-let myFetchedData=loadData('https://dog.ceo/api/breeds/image/random');
+function getDog(){
+  loadData('https://dog.ceo/api/breeds/image/random');
+}
+
 
 
 
 //Load Data function
 function loadData(apiUrl){
 
-    console.log("fetching data");
+    console.log("fetching  dog data");
    
 
     fetch(apiUrl)
 
-    .then(   (response) => {
+    .then(   function(response) {
       // wait for fetch to complete
-
-
         return response.json();
-
-
-
-
-
       }
       )
-      
-      .then(    (data) => {
+      .then(    function(data) {
         // do something with 'data' 
-
-        buildView(data.message);
+        console.log("building  dog ");
+        buildView(data.message,"random dog");
       
       })
 
-      .catch(
+      .catch(()=>{
+        console.log("offline from fetch: "+lastImage);
 
-      );
+        if(lastImage=="empty"){
+          buildView("/img/dog-icon.svg");
+        }else{
+          buildView(lastImage,"same dog");
+        }
+       
+        
+      });
 }
 
 
@@ -70,12 +75,13 @@ function loadData(apiUrl){
 let app=document.getElementById("doggo");
 
 
-function buildView(myImgUrl){
-
+function buildView(myImgUrl,myMessage){
+  app.innerHTML="";
+  lastImage=myImgUrl;
 
   let myTitle=document.createElement("h2");
 
-  myTitle.innerText="En Hund";
+  myTitle.innerText=myMessage;
    
 let dogImg=document.createElement("img");
 dogImg.src=myImgUrl;
