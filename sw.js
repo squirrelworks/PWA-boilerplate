@@ -34,6 +34,39 @@ self.addEventListener("activate", function (event) {
 });
 
 //      fetch    ----------------------------------------------
+/* 
+self.addEventListener('fetch', function (event) {
+
+  if(event.request.destination=="image"){
+
+
+  
+  event.respondWith(
+// returns 
+    caches.open(Dynamic_cache)
+      .then(function (cache) {
+
+        cache.keys()
+          .then(function (requests) {
+
+            caches.match(requests[1])
+              .then(function (response) {
+                console.log(response);
+return response;
+              })
+
+          })
+      })
+
+
+  )
+
+}
+
+});
+
+ */
+
 
 
 
@@ -57,8 +90,10 @@ self.addEventListener('fetch', function (event) {
       event.respondWith(
 
         caches.open(Dynamic_cache).then(function (cache) {
+
           return cache.match(event.request)
           .then(function (response) {
+         
             return (response ||
               fetch(event.request).then(function (response) {
                
@@ -68,7 +103,7 @@ self.addEventListener('fetch', function (event) {
               })
             );
           });
-        }),
+        })
 
       );
       return;
@@ -112,4 +147,6 @@ return response || fetch(event.request)
 
 
   );
-}); */
+}); 
+
+*/
