@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-site-cache';
+const CACHE_NAME = 'my-site-cache-1';
 const Dynamic_cache = 'site-dynamic-cache';
 
 let urlsToCache = [
@@ -28,10 +28,21 @@ self.addEventListener('install', function (event) {
 });
 
 
-self.addEventListener("activate", function (event) {
-  console.log('activated');
-
+self.addEventListener("activate", function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (CACHE_NAME !== cacheName &&  cacheName.startsWith("my-site-cache")) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
 });
+
+
 
 //      fetch    ----------------------------------------------
 /* 
